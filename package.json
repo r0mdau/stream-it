@@ -1,0 +1,25 @@
+{
+  "name": "stream-it",
+  "version": "0.0.1",
+  "description": "Send file anonymously over a direct stream between two web browsers",
+  "main": "server.js",
+  "dependencies": {
+    "socket.io": "^1.3.5",
+    "socket.io-stream": "^0.8.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/r0mdau/stream-it.git"
+  },
+  "author": "Romain Dauby",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/r0mdau/stream-it/issues"
+  },
+  "homepage": "https://github.com/r0mdau/stream-it#readme"
+}

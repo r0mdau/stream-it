@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head lang="en">
+    <meta charset="utf-8">
+    <title>Sender</title>
+</head>
+<body>
+    <input id="file" type="file" />
+    <div id="link"></div>
+
+    <script src="http://stream-it.dev:90/socket.io/socket.io.js"></script>
+    <script src="node_modules/socket.io-stream/socket.io-stream.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script>
+        var file, senderId;
+        $(function() {
+            var socket = io.connect('http://stream-it.dev:90');
+            socket.emit('getId');
+            socket.on('getId', function(id) {
+                senderId = id;
+            });
+
+            $('#file').change(function(e) {
+                file = e.target.files[0];
+                $('#link').html('Send this link to share the file, don\'t close your browser : http://stream-it.dev/receiver.html#' + senderId);
+            });
+
+            ss(socket).on('giveMeTheFile', function(stream) {
+                ss.createBlobReadStream(file).pipe(stream);
+            });
+        });
+    </script>
+</body>
+</html>
