@@ -1,0 +1,29 @@
+doctype html
+html
+    head(lang="en")
+    meta(charset="utf-8")
+    title Sender
+    body
+        input(id="file" type="file")
+        div(id="link")
+        script(src="#{env.protocol}://#{env.uri}:#{env.socketPort}/socket.io/socket.io.js")
+        script(src="/socket.io-stream/socket.io-stream.js")
+        script(src="https://code.jquery.com/jquery-2.1.4.min.js")
+        script.
+            var file, senderId;
+            $(function() {
+                var socket = io.connect('#{env.protocol}://#{env.uri}:#{env.socketPort}');
+                socket.emit('getId');
+                socket.on('getId', function(id) {
+                    senderId = id;
+                });
+
+                $('#file').change(function(e) {
+                    file = e.target.files[0];
+                    $('#link').html('Send this link to share the file, don\'t close your browser : #{env.protocol}://#{env.uri}:#{env.port}/receiver#' + senderId);
+                });
+
+                ss(socket).on('giveMeTheFile', function(stream) {
+                    ss.createBlobReadStream(file).pipe(stream);
+                });
+            });
