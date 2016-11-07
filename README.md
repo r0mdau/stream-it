@@ -13,3 +13,9 @@ Send file anonymously over a direct stream between two web browsers
 ```
 $ docker-compose up --build
 ```
+
+In your hosts
+
+    127.0.0.1 stream-it.dev
+  
+And go to http://stream-it.dev:8080
