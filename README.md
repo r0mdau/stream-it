@@ -1,7 +1,9 @@
 # stream-it
 
-[![dependencies Status](https://david-dm.org/r0mdau/stream-it/status.svg)](https://david-dm.org/r0mdau/stream-it)
-[![devDependencies Status](https://david-dm.org/r0mdau/stream-it/dev-status.svg)](https://david-dm.org/r0mdau/stream-it?type=dev)
+<p align="center">
+<a href="https://david-dm.org/r0mdau/stream-it"><img src="https://david-dm.org/r0mdau/stream-it.svg" alt="Dependency Status"></a>
+<a href="https://david-dm.org/r0mdau/stream-it/?type=dev"><img src="https://david-dm.org/r0mdau/stream-it/dev-status.svg" alt="devDependency Status"></a>
+</p>
 
 Send file anonymously over a direct stream between two web browsers
 
